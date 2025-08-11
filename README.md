@@ -1,10 +1,22 @@
 # Selene
 
-RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design, intended to push the state of the art of the field, rather than playing catch-up with commercial designs. The very high standard set by modern RISC-V IP all but compels us to set our aims higher. The RV64GCBKHV playbook has been validated, thus, but the addition of Zfh is invaluable for HPC/ML workloads due to mixed-precision being increasingly important. 
+RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design, intended to push the state of the art of the field, rather than playing catch-up with commercial designs. The very high standard set by modern RISC-V IP all but compels us to set our aims higher. IP blocks exist for the OSS community to pull from (Hardfloat, Rocketchip), and the RV64GCBKHV playbook has been validated (XiangShan Kunminghu) at Neoverse V2-tier performance, proving open-source Chisel designs can compete with commercial HPC designs.
 
-Additionally, a drastically improved frontend, significantly improved documentation, and a design optimized for readability as well as performance, are all improvements we can make, to push designs in the open-source space to be superior to commercial designs, both in absolute performance, and in the ability to use this as a foundation to build future IP upon. AMD and Intel race to win the CPU war not by aiming to beat the current-generation but to make their competitor's next generation obsolete. For open-source to be a viable alternative to COTC components, we must not only succeed at this at the RTL stage, but succeed at the tapeout and economics stage. Of course, the latter is harder, but the former is lofty enough.
+It's insufficient to play catch-up, though. AMD and Intel race to win the CPU war not by aiming to beat the current-generation but to make their competitor's next generation obsolete. For open-source to be a viable alternative to COTC components, we must not only succeed at this at the RTL stage, but succeed at the tapeout and economics stage. Of course, the latter is harder, but the former is lofty enough. 
 
 This is the objective of Selene.
+
+## Key Milestones
+
+We fork XiangShan's Kunminghu v3 to use it as a baseline. However, the main improvements we plan to do to it are:
+- Drastically improving the readability of code by making it self-documenting, breaking massive monofiles/monoclasses/mono-objects into smaller ones, cleaning up the repo hierarchy and overhauling documentation
+- Massively overhauling the frontend qualitatively (much more aggressiveness in speculation and branching), and the microarchitecture quantitatively (number go up, basically). This is a must-have to drastically push peak performance.
+- Improve parameterization ability, especially to do with cores (optimal core range should be 8 to 128. No point in making a HPC core if it's unable to get to Threadripper levels even in theory, eh?)
+- Add Zfh support by modifying the floating-point units' parameterization (invaluable for ML workloads)
+
+The key aim is this: Kunminghu v3 is very performant and built very quickly, but is very hard for an outsider to read. RocketChip is extremely readable and modular, but basically has no modern cores. Make massive frontend improvements to Kunminghu, leaving the backend mostly as-is, and rewrite everything to have the readability/modularity of RocketChip. It should not only be very easy to read, thus, but also easy to strip parts for use in other cores or implementations, or to modify this one for future improvements.
+
+Basically, just adhere to normal hardware best practices.
 
 ## Microarchitecture:
 
