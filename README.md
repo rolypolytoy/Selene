@@ -6,6 +6,8 @@ It's insufficient to play catch-up, though. AMD and Intel race to win the CPU wa
 
 This is the objective of Selene.
 
+TLDR; Zen 6 and 16th Gen is being written right now, so that's current gen. Our performance targets are to crush Zen 7 and 17th Gen, at least at the RTL stage. 
+
 ## Key Milestones
 
 We fork XiangShan's Kunminghu v3 to use it as a baseline. However, the main improvements we plan to do to it are:
