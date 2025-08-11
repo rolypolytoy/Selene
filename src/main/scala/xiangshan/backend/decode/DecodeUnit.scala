@@ -1179,7 +1179,7 @@ class DecodeUnit(implicit p: Parameters) extends XSModule with DecodeUnitConstan
   ))
 
   // Don't compress in the same Rob entry when crossing Ftq entry boundary
-  io.deq.decodedInst.canRobCompress := decodedInst.canRobCompress && !io.enq.ctrlFlow.isLastInFtqEntry
+  io.deq.decodedInst.canRobCompress := decodedInst.canRobCompress
 
   //-------------------------------------------------------------
   // Debug Info
