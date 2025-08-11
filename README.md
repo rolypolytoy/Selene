@@ -16,6 +16,7 @@ RV64GCHVZb*ZfhZic* superscalar out-of-order 14-stage pipelined design.
 - Rename Maps: 64 bytes
 
 **Branch Prediction**
+
 - BTB: 8K entries
 - RAS: 32 entries
 - Global History: 20-bit
@@ -37,4 +38,13 @@ RV64GCHVZb*ZfhZic* superscalar out-of-order 14-stage pipelined design.
 - Non-inclusive L3
 - 2D mesh
 - 256-bit links
-- 16k entry directory c
+- 16k entry directory cache
+
+
+## Key OSS
+
+Key open source IP this pulls from
+- [Hardfloat](https://github.com/ucb-bar/berkeley-hardfloat) for IEEE-754 compliance
+- [RocketChip](https://github.com/chipsalliance/rocket-chip) for various RTL IP
+- [XiangShan](https://github.com/OpenXiangShan/XiangShan/) for advanced frontend/backend IP, as well as HPC scaffolding
+
