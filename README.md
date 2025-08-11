@@ -1,6 +1,12 @@
 # Selene
 
-RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design.
+RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design, intended to push the state of the art of the field, rather than playing catch-up with commercial designs. The very high standard set by modern RISC-V IP (RocketChip providing high-performance IP for backend components, and XiangShan's Nanhu and Kunminghu architectures providing A76 and Neoverse V2-tier performance with tapeouts) all but compels us to set our aims higher. The RV64GCBKHV playbook has been validated, thus, but the addition of Zfh is invaluable for HPC/ML workloads due to mixed-precision being increasingly important. 
+
+Additionally, a drastically improved frontend, significantly improved documentation, and a design optimized for readability as well as performance, are all improvements we can make, to push designs in the open-source space to be superior to commercial designs, both in absolute performance, and in the ability to use this as a foundation to build future IP upon. AMD and Intel race to win the CPU war not by aiming to beat the current-generation but to make their competitor's next generation obsolete. For open-source to be a viable alternative to COTC components, we must not only succeed at this at the RTL stage, but succeed at the tapeout and economics stage. Of course, the latter is harder, but the former is lofty enough.
+
+This is the objective of Selene.
+
+## Microarchitecture:
 
 4 instruction decode, 8 instruction issue width. 256 instruction window (reorder buffer).
 
@@ -16,7 +22,6 @@ RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design.
 - Rename Maps: 64 bytes
 
 **Branch Prediction**
-
 - BTB: 8K entries
 - RAS: 32 entries
 - Global History: 20-bit
@@ -29,7 +34,7 @@ RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design.
 **Execution Units**
 - 4 integer ALUs (2 simple, 2 complex)
 - 2 LSUs, 6 vector LSUs
-- 4 vector lanes (configurable width)
+- 4 vector lanes (configurable width) with 2 VFPUs, 2VALUs, 1VMISC
 - 2 FPU
 
 **Coherenty, Interconnects, Directories**
@@ -39,7 +44,6 @@ RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design.
 - 2D mesh
 - 256-bit links
 - 16k entry directory cache
-
 
 ## Key OSS
 
