@@ -1,6 +1,6 @@
 # Selene
 
-RV64GCHVZb*ZfhZic* superscalar out-of-order 14-stage pipelined design.
+RV64GCBKHVZfh superscalar out-of-order 14-stage pipelined design.
 
 4 instruction decode, 8 instruction issue width. 256 instruction window (reorder buffer).
 
